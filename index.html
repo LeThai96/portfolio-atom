@@ -10,7 +10,7 @@
       name="viewport"
     />
 
-    <title>Homepage | Atom Template</title>
+    <title>Thai Le Portfolio</title>
 
     <meta property="og:title" content="Homepage | Atom Template" />
 
@@ -20,10 +20,7 @@
 
     <meta property="og:url" content="//" />
 
-    <meta
-      name="description"
-      content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    />
+    <meta name="description" content="Thai Le Portfolio" />
 
     <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
 
@@ -80,7 +77,28 @@
   <body
     :class="{ 'overflow-hidden max-h-screen': mobileMenu }"
     class="relative"
-    x-data="{ mobileMenu: false }"
+    x-data="{ mobileMenu: false, connects: [
+      { 
+        link: 'https://www.facebook.com/profile.php?id=100008672977690',
+        class: '',
+        iconClass: 'bxl-facebook-square' 
+      },
+      { 
+        link: 'https://www.linkedin.com/in/dinh-thai-le-bb0b151ba/',
+        class: 'pl-4',
+        iconClass: 'bxl-linkedin' 
+      },
+      { 
+        link: 'https://www.instagram.com/le.thai1996/',
+        class: 'pl-4',
+        iconClass: 'bxl-instagram' 
+      },
+      { 
+        link: 'https://github.com/LeThai96',
+        class: 'pl-4',
+        iconClass: 'bxl-github' 
+      },
+    ] }"
   >
     <div id="main" class="relative">
       <div
@@ -99,6 +117,7 @@
             <div>
               <a href="#">
                 <img
+                  loading="lazy"
                   src="/assets/img/thai-le-logo.png"
                   class="w-24 lg:w-48"
                   alt="logo image"
@@ -224,6 +243,7 @@
               @click="mobileMenu = false"
             >
               <img
+                loading="lazy"
                 src="/assets/img/icon-close.svg"
                 class="h-10 w-auto"
                 alt=""
@@ -313,6 +333,7 @@
             <div class="flex flex-col items-center justify-center lg:flex-row">
               <div class="rounded-full border-8 border-primary shadow-xl">
                 <img
+                  loading="lazy"
                   src="/assets/img/avatar.jpg"
                   class="h-48 rounded-full sm:h-56"
                   alt="author"
@@ -340,32 +361,18 @@
                   <div
                     class="flex items-center justify-center pl-2 pt-5 sm:justify-start sm:pt-0"
                   >
-                  <a
-                  href="https://www.facebook.com/profile.php?id=100008672977690"
-                  target="_blank"
-                >
-                  <i
-                    class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"
-                  ></i>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/dinh-thai-le-bb0b151ba/"
-                  target="_blank"
-                  class="pl-4"
-                >
-                  <i
-                    class="bx bxl-linkedin text-2xl text-white hover:text-yellow"
-                  ></i>
-                </a>
-                <a
-                  href="https://www.instagram.com/le.thai1996/"
-                  target="_blank"
-                  class="pl-4"
-                >
-                  <i
-                    class="bx bxl-instagram text-2xl text-white hover:text-yellow"
-                  ></i>
-                </a>
+                    <template x-for="connect in connects" :key="connect.link">
+                      <a
+                        x-bind:href="connect.link"
+                        x-bind:class="connect.class"
+                        target="_blank"
+                      >
+                        <i
+                          class="bx text-2xl text-white hover:text-yellow"
+                          x-bind:class="connect.iconClass"
+                        ></i>
+                      </a>
+                    </template>
                   </div>
                 </div>
               </div>
@@ -415,110 +422,120 @@
                 <div
                   class="flex items-center justify-center pl-2 pt-5 sm:justify-start sm:pt-0"
                 >
-                  <a
-                    href="https://www.facebook.com/profile.php?id=100008672977690"
-                    target="_blank"
-                  >
-                    <i
-                      class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"
-                    ></i>
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/dinh-thai-le-bb0b151ba/"
-                    target="_blank"
-                    class="pl-4"
-                  >
-                    <i
-                      class="bx bxl-linkedin text-2xl text-white hover:text-yellow"
-                    ></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/le.thai1996/"
-                    target="_blank"
-                    class="pl-4"
-                  >
-                    <i
-                      class="bx bxl-instagram text-2xl text-white hover:text-yellow"
-                    ></i>
-                  </a>
+                  <template x-for="connect in connects" :key="connect.link">
+                    <a
+                      x-bind:href="connect.link"
+                      x-bind:class="connect.class"
+                      target="_blank"
+                    >
+                      <i
+                        class="bx text-2xl text-primary hover:text-yellow"
+                        x-bind:class="connect.iconClass"
+                      ></i>
+                    </a>
+                  </template>
                 </div>
+              </div>
+              <div
+                class="flex flex-col pt-4 lg:flex-row"
+                x-data="{contacts: [
+                  {
+                    subject: 'Phone',
+                    body: '(+84)916819740',
+                    link: 'tel:+84916819740',
+                    class: '',
+                    iconClass: 'bx-phone' 
+                  },
+                  {
+                    subject: 'Email',
+                    body: 'le.dinhthai00@gmail.com',
+                    link: 'mailto:le.dinhthai00@gmail.com',
+                    class: '',
+                    iconClass: 'bx-envelope' 
+                  },
+                  {
+                    subject: 'Location',
+                    body: 'Tan Binh, HCMC, Vietnam',
+                    link: 'https://goo.gl/maps/1qQxXXcLhvu6gQrM6',
+                    class: '',
+                    iconClass: 'bx-map' 
+                  },
+                ]}"
+              >
+                <template x-for="contact in contacts" :key="contact.subject">
+                  <div class="w-full px-6 py-6 sm:py-8 lg:w-1/3">
+                    <div class="flex items-center">
+                      <i
+                        class="bx text-2xl text-grey-40"
+                        x-bind:class="contact.iconClass"
+                      ></i>
+                      <p
+                        class="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg"
+                        x-text="contact.subject"
+                      ></p>
+                    </div>
+                    <a
+                      x-bind:href="contact.link"
+                      target="_blank"
+                      class="pt-2 text-left font-body font-bold text-primary lg:text-lg"
+                      x-text="contact.body"
+                    ></a>
+                  </div>
+                </template>
               </div>
             </div>
 
             <!-- SKILLS -->
-            <div class="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0">
-              <div>
-                <div class="flex items-end justify-between">
-                  <h4 class="font-body font-semibold text-black">
-                    Back-end: .NET Core, .NET Framework, Nodejs
-                  </h4>
-                  <h3 class="font-body text-3xl font-bold text-primary">99%</h3>
+            <div
+              class="w-full pl-0 pt-10 sm:w-3/4 lg:w-2/5 lg:pl-12 lg:pt-0"
+              x-data="{skills: [
+                {
+                  class: '',
+                  name: 'Back-end: .NET Core, .NET Framework, Nodejs',
+                  percentage: 99
+                },
+                {
+                  class: 'pt-6',
+                  name: 'Front-end: Reactjs, Javascript, TailwindCSS, HTML, CSS, JQuery',
+                  percentage: 80
+                },
+                {
+                  class: 'pt-6',
+                  name: 'Architecture: Clean Architecture, Microservices, Serverless',
+                  percentage: 90
+                },
+                {
+                  class: 'pt-6',
+                  name: 'DevOps: Azure, Docker, CI/CD',
+                  percentage: 60
+                },
+                {
+                  class: 'pt-6',
+                  name: 'Soft skills: English(verbal & written), Presentation, Teamwork',
+                  percentage: 90
+                },
+              ]}"
+            >
+              <template x-for="skill in skills" :key="skill.name">
+                <div x-bind:class="skill.class">
+                  <div class="flex items-end justify-between">
+                    <h4
+                      x-text="skill.name"
+                      class="font-body font-semibold text-black"
+                    ></h4>
+                    <h3
+                      x-text="skill.percentage + '%'"
+                      class="font-body text-3xl font-bold text-primary"
+                    ></h3>
+                  </div>
+                  <div class="mt-2 h-3 w-full rounded-full bg-lila">
+                    <div
+                      class="h-3 rounded-full bg-primary"
+                      x-bind:style="'width: ' + skill.percentage + '%'"
+                    ></div>
+                  </div>
                 </div>
-                <div class="mt-2 h-3 w-full rounded-full bg-lila">
-                  <div
-                    class="h-3 rounded-full bg-primary"
-                    style="width: 99%"
-                  ></div>
-                </div>
-              </div>
-              <div class="pt-6">
-                <div class="flex items-end justify-between">
-                  <h4 class="font-body font-semibold text-black">
-                    Front-end: Reactjs, Javascript, TailwindCSS, HTML, CSS,
-                    JQuery
-                  </h4>
-                  <h3 class="font-body text-3xl font-bold text-primary">80%</h3>
-                </div>
-                <div class="mt-2 h-3 w-full rounded-full bg-lila">
-                  <div
-                    class="h-3 rounded-full bg-primary"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-              <div class="pt-6">
-                <div class="flex items-end justify-between">
-                  <h4 class="font-body font-semibold text-black">
-                    Architecture: Clean Architecture, Microservices, Serverless
-                  </h4>
-                  <h3 class="font-body text-3xl font-bold text-primary">90%</h3>
-                </div>
-                <div class="mt-2 h-3 w-full rounded-full bg-lila">
-                  <div
-                    class="h-3 rounded-full bg-primary"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
-              <div class="pt-6">
-                <div class="flex items-end justify-between">
-                  <h4 class="font-body font-semibold text-black">
-                    DevOps: Azure, Docker, CI/CD
-                  </h4>
-                  <h3 class="font-body text-3xl font-bold text-primary">60%</h3>
-                </div>
-                <div class="mt-2 h-3 w-full rounded-full bg-lila">
-                  <div
-                    class="h-3 rounded-full bg-primary"
-                    style="width: 60%"
-                  ></div>
-                </div>
-              </div>
-              <div class="pt-6">
-                <div class="flex items-end justify-between">
-                  <h4 class="font-body font-semibold text-black">
-                    Soft skills: English(verbal & written), Presentation,
-                    Teamwork
-                  </h4>
-                  <h3 class="font-body text-3xl font-bold text-primary">90%</h3>
-                </div>
-                <div class="mt-2 h-3 w-full rounded-full bg-lila">
-                  <div
-                    class="h-3 rounded-full bg-primary"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
+              </template>
             </div>
           </div>
         </div>
@@ -538,169 +555,81 @@
 
           <div
             class="grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 md:gap-10 md:pt-12 lg:grid-cols-3"
+            x-data="{ services: [
+              {
+                name: 'BACK-END DEVELOPMENT',
+                description: 'Developing the web application server-side by using .NET technologies, NodeJS or any back-end language',
+                iconSrc: '/assets/img/icon-backend.svg',
+                iconSrcOnHover: '/assets/img/icon-backend-white.svg',
+                iconAlt: 'Back-end Development Icon',
+              },
+              {
+                name: 'FRONT-END DEVELOPMENT',
+                description: 'Developing the user-interface by using ReactJS, TypeScript, TailwindCSS or any front-end language',
+                iconSrc: '/assets/img/icon-react.svg',
+                iconSrcOnHover: '/assets/img/icon-react-white.svg',
+                iconAlt: 'Front-end Development Icon',
+              },
+              {
+                name: 'CLOUD COMPUTING',
+                description: 'Deploying your application to a cloud platform and integrating the cloud services into your application',
+                iconSrc: '/assets/img/icon-cloud.svg',
+                iconSrcOnHover: '/assets/img/icon-cloud-white.svg',
+                iconAlt: 'Cloud computing Icon',
+              },
+              {
+                name: 'SYSTEM DESGIN',
+                description: 'Designing the systems with high scalalibity, reliability, security and performance',
+                iconSrc: '/assets/img/icon-system.svg',
+                iconSrcOnHover: '/assets/img/icon-system-white.svg',
+                iconAlt: 'System Design Icon',
+              },
+              {
+                name: 'DATABASE DESGIN',
+                description: 'Designing the well-structured and high performance databases, either SQL or NoSQL base on the specific requirements',
+                iconSrc: '/assets/img/icon-database.svg',
+                iconSrcOnHover: '/assets/img/icon-database-white.svg',
+                iconAlt: 'Database Design Icon',
+              },
+              {
+                name: 'MICROSERVICES MIGRATION',
+                description: 'Migrating the systems from a monolithic architecture to a microservices architure',
+                iconSrc: '/assets/img/icon-microservices-migration.svg',
+                iconSrcOnHover: '/assets/img/icon-microservices-migration-white.svg',
+                iconAlt: 'Microservices Migration Icon',
+              },
+            ]}"
           >
-            <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-              <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-                <div class="hidden group-hover:block">
-                  <img
-                    src="/assets/img/icon-development-white.svg"
-                    alt="development icon"
-                  />
+            <template x-for="service in services" :key="service.name">
+              <div class="group rounded px-8 py-12 shadow hover:bg-primary">
+                <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
+                  <div class="hidden group-hover:block">
+                    <img
+                      loading="lazy"
+                      x-bind:src="service.iconSrcOnHover"
+                      alt="development icon"
+                    />
+                  </div>
+                  <div class="block group-hover:hidden">
+                    <img
+                      loading="lazy"
+                      x-bind:src="service.iconSrc"
+                      alt="development icon"
+                    />
+                  </div>
                 </div>
-                <div class="block group-hover:hidden">
-                  <img
-                    src="/assets/img/icon-development-black.svg"
-                    alt="development icon"
-                  />
-                </div>
-              </div>
-              <div class="text-center">
-                <h3
-                  class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-                >
-                  WEB DEVELOPMENT
-                </h3>
-                <p
-                  class="text-grey pt-4 text-sm group-hover:text-white md:text-base"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-              </div>
-            </div>
-            <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-              <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-                <div class="hidden group-hover:block">
-                  <img
-                    src="/assets/img/icon-content-white.svg"
-                    alt="content marketing icon"
-                  />
-                </div>
-                <div class="block group-hover:hidden">
-                  <img
-                    src="/assets/img/icon-content-black.svg"
-                    alt="content marketing icon"
-                  />
+                <div class="text-center">
+                  <h3
+                    class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
+                    x-text="service.name"
+                  ></h3>
+                  <p
+                    class="text-grey pt-4 text-sm group-hover:text-white md:text-base"
+                    x-text="service.description"
+                  ></p>
                 </div>
               </div>
-              <div class="text-center">
-                <h3
-                  class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-                >
-                  Technical Writing
-                </h3>
-                <p
-                  class="text-grey pt-4 text-sm group-hover:text-white md:text-base"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-              </div>
-            </div>
-            <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-              <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-                <div class="hidden group-hover:block">
-                  <img
-                    src="/assets/img/icon-database-white.svg"
-                    alt="Database icon"
-                  />
-                </div>
-                <div class="block group-hover:hidden">
-                  <img
-                    src="/assets/img/icon-database.svg"
-                    alt="Database icon"
-                  />
-                </div>
-              </div>
-              <div class="text-center">
-                <h3
-                  class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-                >
-                  Database Design
-                </h3>
-                <p
-                  class="text-grey pt-4 text-sm group-hover:text-white md:text-base"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-              </div>
-            </div>
-            <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-              <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-                <div class="hidden group-hover:block">
-                  <img
-                    src="/assets/img/icon-system-white.svg"
-                    alt="System Design icon"
-                  />
-                </div>
-                <div class="block group-hover:hidden">
-                  <img
-                    src="/assets/img/icon-system.svg"
-                    alt="System Design icon"
-                  />
-                </div>
-              </div>
-              <div class="text-center">
-                <h3
-                  class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-                >
-                  System Design
-                </h3>
-                <p
-                  class="text-grey pt-4 text-sm group-hover:text-white md:text-base"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-              </div>
-            </div>
-            <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-              <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-                <div class="hidden group-hover:block">
-                  <img
-                    src="/assets/img/icon-react-white.svg"
-                    alt="React icon"
-                  />
-                </div>
-                <div class="block group-hover:hidden">
-                  <img src="/assets/img/icon-react.svg" alt="React icon" />
-                </div>
-              </div>
-              <div class="text-center">
-                <h3
-                  class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-                >
-                  Front-end development
-                </h3>
-                <p
-                  class="text-grey pt-4 text-sm group-hover:text-white md:text-base"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-              </div>
-            </div>
-            <div class="group rounded px-8 py-12 shadow hover:bg-primary">
-              <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-                <div class="hidden group-hover:block">
-                  <img
-                    src="/assets/img/icon-backend-white.svg"
-                    alt="Backend icon"
-                  />
-                </div>
-                <div class="block group-hover:hidden">
-                  <img src="/assets/img/icon-backend.svg" alt="Backend icon" />
-                </div>
-              </div>
-              <div class="text-center">
-                <h3
-                  class="pt-8 text-lg font-semibold uppercase text-primary group-hover:text-yellow lg:text-xl"
-                >
-                  Back-end development
-                </h3>
-                <p
-                  class="text-grey pt-4 text-sm group-hover:text-white md:text-base"
-                >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                </p>
-              </div>
-            </div>
+            </template>
           </div>
         </div>
 
@@ -721,11 +650,25 @@
             class="mx-auto grid w-full grid-cols-1 gap-8 pt-12 sm:w-3/4 md:gap-10 lg:w-full lg:grid-cols-2"
           >
             <a
-              href="#"
+              href="https://www.tomsoft.com.au/"
+              target="_blank"
               class="mx-auto transform transition-all hover:scale-105 md:mx-0"
             >
               <img
-                src="/assets/img/portfolio-apple.jpeg"
+                loading="lazy"
+                src="/assets/img/portfolio-tom-platform.png"
+                class="w-full shadow"
+                alt="portfolio image"
+              />
+            </a>
+            <a
+              href="https://www.google.com/search?q=viwater"
+              target="_blank"
+              class="mx-auto transform transition-all hover:scale-105 md:mx-0"
+            >
+              <img
+                loading="lazy"
+                src="/assets/img/portfolio-viwater.png"
                 class="w-full shadow"
                 alt="portfolio image"
               />
@@ -735,27 +678,20 @@
               class="mx-auto transform transition-all hover:scale-105 md:mx-0"
             >
               <img
-                src="/assets/img/portfolio-stripe.jpeg"
+                loading="lazy"
+                src="/assets/img/portfolio-profile.png"
                 class="w-full shadow"
                 alt="portfolio image"
               />
             </a>
             <a
-              href="#"
+              href="http://simmart.com.vn/"
+              target="_blank"
               class="mx-auto transform transition-all hover:scale-105 md:mx-0"
             >
               <img
-                src="/assets/img/portfolio-fedex.jpeg"
-                class="w-full shadow"
-                alt="portfolio image"
-              />
-            </a>
-            <a
-              href="#"
-              class="mx-auto transform transition-all hover:scale-105 md:mx-0"
-            >
-              <img
-                src="/assets/img/portfolio-microsoft.jpeg"
+                loading="lazy"
+                src="/assets/img/portfolio-simmart.png"
                 class="w-full shadow"
                 alt="portfolio image"
               />
@@ -777,6 +713,7 @@
               >
                 <span class="m-8 block">
                   <img
+                    loading="lazy"
                     src="/assets/img/logo-tomsoft.svg"
                     alt="client logo"
                     class="mx-auto block h-12 w-auto"
@@ -784,6 +721,7 @@
                 </span>
                 <span class="m-8 block">
                   <img
+                    loading="lazy"
                     src="/assets/img/logo-in2food.png"
                     alt="client logo"
                     class="mx-auto block h-12 w-auto"
@@ -792,6 +730,7 @@
 
                 <span class="m-8 block">
                   <img
+                    loading="lazy"
                     src="/assets/img/logo-gle.png"
                     alt="client logo"
                     class="mx-auto block h-12 w-auto"
@@ -800,6 +739,7 @@
 
                 <span class="m-8 block">
                   <img
+                    loading="lazy"
                     src="/assets/img/logo-bavitech.png"
                     alt="client logo"
                     class="mx-auto block h-12 w-auto"
@@ -808,6 +748,7 @@
 
                 <span class="m-8 block">
                   <img
+                    loading="lazy"
                     src="/assets/img/logo-vsip.png"
                     alt="client logo"
                     class="mx-auto block h-12 w-auto"
@@ -831,131 +772,96 @@
             Here's what I did
           </h3>
 
-          <div class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3">
+          <div
+            class="relative mx-auto mt-12 flex w-full flex-col lg:w-2/3"
+            x-data="{ experiences: [
+                {
+                  company: 'Tomsoft',
+                  companyLogo: '/assets/img/logo-tomsoft.svg',
+                  period: 'Jul 2020 - Feb 2023',
+                  role: 'Full-stack Developer',
+                  responsibilities: [
+                    'Maintained and developed features for ERP & Platform products using .NET Framework, .NET Core, SQL Server',
+                    'Changed tighly-coupled intergration processes to loosely-coupled by serverless architecture using Azure Functions & Azure Service Bus',
+                    'Integrated third-party libraries and services such as Twillo, Sendgrid to handle payment, SMS & email modules',
+                    'Utilized ReactJS, Redux, TypeScript, TailwindCSS to build responsive and user-friendly front-end interfaces',
+                    'Collaborated with cross-functional teams, including product managers, designers, and other developers'
+                  ]
+                },
+                {
+                  company: 'Bavitech',
+                  companyLogo: '/assets/img/logo-bavitech.png',
+                  period: 'Mar 2019 - June 2020',
+                  role: 'Project Engineer',
+                  responsibilities: [
+                    'Maintained and developed features for Viwater product, which is used by almost all water suppliers in Vietnam using .NET Framework, SQL Server',
+                    'Integrated with instrumentations, sensors to collect monitoring data and normalize them',
+                    'Collaborated with customers, stakeholders and tech-lead to deliver high-quality features and resolvetechnical issues',
+                  ]
+                }
+              ]
+            }"
+          >
             <span
-              class="absolute inset-y-0 left-2/5 ml-10 hidden w-0.5 bg-grey-40 md:block"
+              class="absolute inset-y-0 left-1/5 ml-10 hidden w-0.5 bg-grey-40 md:block"
             ></span>
 
-            <div
-              class="mt-8 flex flex-col text-center md:flex-row md:text-left"
-            >
-              <div class="md:w-2/5">
-                <div class="flex justify-center md:justify-start">
-                  <span class="shrink-0">
-                    <img
-                      src="/assets/img/logo-tomsoft.svg"
-                      class="h-auto w-32"
-                      alt="company logo"
-                    />
-                  </span>
-                  <div class="relative ml-3 hidden w-full md:block">
-                    <span
-                      class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
-                    ></span>
+            <template x-for="exp in experiences" :key="exp.company">
+              <div
+                class="mt-8 flex flex-col text-center md:flex-row md:text-left"
+              >
+                <div class="md:w-1/5">
+                  <div class="flex justify-center md:justify-start">
+                    <span class="shrink-0">
+                      <img
+                        loading="lazy"
+                        x-bind:src="exp.companyLogo"
+                        class="h-auto w-32"
+                        alt="company logo"
+                      />
+                    </span>
+                    <div class="relative ml-3 hidden w-full md:block">
+                      <span
+                        class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
+                      ></span>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="md:w-3/5">
-                <div class="relative flex md:pl-18">
-                  <span
-                    class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
-                  ></span>
+                <div class="md:w-4/5">
+                  <div class="relative flex md:pl-18">
+                    <span
+                      class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
+                    ></span>
 
-                  <div class="mt-1 flex">
-                    <i
-                      class="bx bxs-right-arrow hidden text-primary md:block"
-                    ></i>
-                    <div
-                      class="prose prose-sm mx-auto sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl md:-mt-1 md:pl-8"
-                    >
-                      <span class="block font-body font-bold text-grey-40"
-                        >Jul 2020 - Feb 2023</span
+                    <div class="mt-1 flex">
+                      <i
+                        class="bx bxs-right-arrow hidden text-primary md:block"
+                      ></i>
+                      <div
+                        class="prose prose-sm mx-auto sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl md:-mt-1 md:pl-8"
                       >
-                      <span
-                        class="block pt-2 font-header text-xl font-bold uppercase text-primary"
-                        >Full-stack Developer</span
-                      >
-                      <ul class="block font-body text-black">
-                        <li>
-                          Maintained and developed features for Viwater product,
-                          which is used by almost all water suppliers in Vietnam
-                          using .NET Framework, SQL Server
-                        </li>
-                        <li>
-                          Integrated with instrumentations, sensors to collect
-                          monitoring data and normalize them.
-                        </li>
-                        <li>
-                          Collaborated with customers, stakeholders and tech-
-                          lead to deliver high-quality features and resolve
-                          technical issues
-                        </li>
-                      </ul>
+                        <span
+                          class="block font-body font-bold text-grey-40"
+                          x-text="exp.period"
+                        ></span>
+                        <span
+                          class="block pt-2 font-header text-xl font-bold uppercase text-primary"
+                          x-text="exp.role"
+                        ></span>
+
+                        <ul class="block font-body text-black">
+                          <template
+                            x-for="responsibility in exp.responsibilities"
+                          >
+                            <li x-text="responsibility"></li>
+                          </template>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="mt-8 flex flex-col text-center md:flex-row md:text-left"
-            >
-              <div class="md:w-2/5">
-                <div class="flex justify-center md:justify-start">
-                  <span class="shrink-0">
-                    <img
-                      src="/assets/img/logo-bavitech.png"
-                      class="h-auto w-32"
-                      alt="company logo"
-                    />
-                  </span>
-                  <div class="relative ml-3 hidden w-full md:block">
-                    <span
-                      class="absolute inset-x-0 top-1/2 h-0.5 -translate-y-1/2 transform bg-grey-70"
-                    ></span>
-                  </div>
-                </div>
-              </div>
-              <div class="md:w-3/5">
-                <div class="relative flex md:pl-18">
-                  <span
-                    class="absolute left-8 top-1 hidden h-4 w-4 rounded-full border-2 border-grey-40 bg-white md:block"
-                  ></span>
-
-                  <div class="mt-1 flex">
-                    <i
-                      class="bx bxs-right-arrow hidden text-primary md:block"
-                    ></i>
-                    <div
-                      class="prose prose-sm mx-auto sm:prose-base lg:prose-lg xl:prose-xl 2xl:prose-2xl md:-mt-1 md:pl-8"
-                    >
-                      <span class="block font-body font-bold text-grey-40"
-                        >Mar 2019 - June 2020</span
-                      >
-                      <span
-                        class="block pt-2 font-header text-xl font-bold uppercase text-primary"
-                        >Project Engineer</span
-                      >
-                      <ul class="block font-body text-black">
-                        <li>
-                          Maintained and developed features for Viwater product,
-                          which is used by almost all water suppliers in Vietnam
-                          using .NET Framework, SQL Server
-                        </li>
-                        <li>
-                          Integrated with instrumentations, sensors to collect
-                          monitoring data and normalize them.
-                        </li>
-                        <li>
-                          Collaborated with customers, stakeholders and tech-
-                          lead to deliver high-quality features and resolve
-                          technical issues
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </template>
           </div>
         </div>
 
@@ -1164,7 +1070,7 @@
           </div>
         </div> -->
 
-        <!-- HERE'S A CONTACT FORM -->
+        <!-- CONTACT FORM -->
         <div class="container py-16 md:py-20" id="contact">
           <h2
             class="text-center font-header text-4xl font-semibold uppercase text-primary sm:text-5xl lg:text-6xl"
@@ -1178,131 +1084,76 @@
           </h4>
           <div class="mx-auto w-full pt-5 text-center sm:w-2/3 lg:pt-6">
             <p class="font-body text-grey-10">
-              Lorem ipsum dolor sit amet consectetur adipiscing elit hendrerit
-              condimentum turpis nisl sem, viverra habitasse urna ante lobortis
-              fermentum accumsan. Viverra habitasse urna ante lobortis fermentum
-              accumsan.
+              If you reached here, you have known much about myself and anything
+              I can help for your business. I'm really, really appreciate!!!
+            </p>
+            <p class="font-body text-grey-10">
+              But if you have any further questions, please feel free to contact
+              me by phone, email or my social medias
             </p>
           </div>
-          <form class="mx-auto w-full pt-10 sm:w-3/4">
+          <div
+            x-data="{ name: '', subject: '', message: '' }"
+            class="mx-auto w-full pt-10 sm:w-3/4"
+          >
             <div class="flex flex-col md:flex-row">
               <input
+                x-model="name"
                 class="mr-3 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:w-1/2 lg:mr-5"
                 placeholder="Name"
                 type="text"
                 id="name"
               />
               <input
+                x-model="subject"
                 class="mt-6 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:ml-3 md:mt-0 md:w-1/2 lg:ml-5"
-                placeholder="Email"
+                placeholder="Subject"
                 type="text"
-                id="email"
+                id="subject"
               />
             </div>
             <textarea
+              x-model="message"
               class="mt-6 w-full rounded border-grey-50 px-4 py-3 font-body text-black md:mt-8"
               placeholder="Message"
               id="message"
               cols="30"
               rows="10"
             ></textarea>
-            <button
+            <a
+              x-bind:href="'mailto:le.dinhthai00@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message)"
               class="mt-6 flex items-center justify-center rounded bg-primary px-8 py-3 font-header text-lg font-bold uppercase text-white hover:bg-grey-20"
             >
               Send
               <i class="bx bx-chevron-right relative -right-2 text-3xl"></i>
-            </button>
-          </form>
-          <div class="flex flex-col pt-16 lg:flex-row">
-            <div
-              class="w-full border-b-2 border-l-2 border-r-2 border-t-2 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/3"
-            >
-              <div class="flex items-center">
-                <i class="bx bx-phone text-2xl text-grey-40"></i>
-                <p
-                  class="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg"
-                >
-                  My Phone
-                </p>
-              </div>
-              <p
-                class="pt-2 text-left font-body font-bold text-primary lg:text-lg"
-              >
-                (+84)916819740
-              </p>
-            </div>
-            <div
-              class="w-full border-b-2 border-l-2 border-r-2 border-t-0 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/3 lg:border-l-0 lg:border-t-2"
-            >
-              <div class="flex items-center">
-                <i class="bx bx-envelope text-2xl text-grey-40"></i>
-                <p
-                  class="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg"
-                >
-                  My Email
-                </p>
-              </div>
-              <p
-                class="pt-2 text-left font-body font-bold text-primary lg:text-lg"
-              >
-                le.dinhthai00@gmail.com
-              </p>
-            </div>
-            <div
-              class="w-full border-b-2 border-l-2 border-r-2 border-t-0 border-grey-60 px-6 py-6 sm:py-8 lg:w-1/3 lg:border-l-0 lg:border-t-2"
-            >
-              <div class="flex items-center">
-                <i class="bx bx-map text-2xl text-grey-40"></i>
-                <p
-                  class="pl-2 font-body font-bold uppercase text-grey-40 lg:text-lg"
-                >
-                  My Address
-                </p>
-              </div>
-              <p
-                class="pt-2 text-left font-body font-bold text-primary lg:text-lg"
-              >
-                Tan Binh District, HCMC, Vietnam
-              </p>
-            </div>
+            </a>
           </div>
         </div>
       </div>
 
+      <!-- COPYRIGHT -->
       <div class="bg-primary">
         <div class="container flex flex-col justify-between py-6 sm:flex-row">
           <p class="text-center font-body text-white md:text-left">
-            © Copyright 2022. All right reserved, ATOM.
+            © Copyright
+            <span x-text="new Date().getFullYear()"></span>
+            . All right reserved, ThaiLe & ATOM.
           </p>
           <div
             class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0"
           >
-          <a
-          href="https://www.facebook.com/profile.php?id=100008672977690"
-          target="_blank"
-        >
-          <i
-            class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"
-          ></i>
-        </a>
-        <a
-          href="https://www.linkedin.com/in/dinh-thai-le-bb0b151ba/"
-          target="_blank"
-          class="pl-4"
-        >
-          <i
-            class="bx bxl-linkedin text-2xl text-white hover:text-yellow"
-          ></i>
-        </a>
-        <a
-          href="https://www.instagram.com/le.thai1996/"
-          target="_blank"
-          class="pl-4"
-        >
-          <i
-            class="bx bxl-instagram text-2xl text-white hover:text-yellow"
-          ></i>
-        </a>
+            <template x-for="connect in connects" :key="connect.link">
+              <a
+                x-bind:href="connect.link"
+                x-bind:class="connect.class"
+                target="_blank"
+              >
+                <i
+                  class="bx text-2xl text-white hover:text-yellow"
+                  x-bind:class="connect.iconClass"
+                ></i>
+              </a>
+            </template>
           </div>
         </div>
       </div>

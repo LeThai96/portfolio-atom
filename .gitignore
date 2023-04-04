@@ -11,6 +11,7 @@
 
 # production
 /build
+/assets/styles/main.min.css
 
 # misc
 .DS_Store
